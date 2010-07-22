@@ -73,6 +73,8 @@
         <property name="webworkWarFile" value="${distDir}/${ant.project.name}-${release}.webwork.war"/>
         <property name="webworkDir"     value="webwork"/>
 
+        <property name="grailsDir"      value="grails"/>
+
         <mkdir dir="${classesDir}"/>
         <mkdir dir="${apiDir}"/>
         <mkdir dir="${logsDir}"/>
@@ -361,6 +363,11 @@
             <lib dir="${libDir}"
                  includes="**/*.jar"/>
         </war>
+    </target>
+
+    <target name="grails.jar" depends="jar"
+            description="Copy jarFile to the Grails web application">
+        <copy file="${jarFile}" todir="${grailsDir}/lib"/>
     </target>
 
     <!--
